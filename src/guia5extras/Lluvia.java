@@ -24,7 +24,7 @@ public class Lluvia {
         }
         System.out.print(String.format("%" + esp + "s", "Promedio"));
         for (int i = 0;i < mm[1].length;i++){
-            System.out.print(String.format("%" + esp + "s", Math.random(promedioZona(i)*100)/100));
+            System.out.print(String.format("%" + esp + "s", promedioZona(i)));
         }
         System.out.println(" ");
         System.out.print(String.format("%" + esp + "s", "Total"));
@@ -45,7 +45,7 @@ public class Lluvia {
         if (cantidad == 0){
             return 0;
         }else{
-            return total/cantidad;
+            return (Math.round((total/cantidad)*100.0)/100.0); // se regresa el dato con 2 decimales
         }
     }
     public double totalZona(int columna){
@@ -55,7 +55,7 @@ public class Lluvia {
                 total += Integer.parseInt(mm[i][columna]);
             }
         }
-        return total;
+        return Math.round(total*100.0)/100.0; // se regresa el dato con 2 decimales
     }
     
     public void cargarMM(){
